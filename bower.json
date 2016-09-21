@@ -1,0 +1,8 @@
+{
+  "name": "carousel",
+  "dependencies": {
+    "angular": "~1.5.8",
+    "angular-animate": "~1.5.8",
+    "viewport-units-buggyfill": "latest"
+  }
+}
