@@ -11,6 +11,11 @@
   function UiController($scope) {
     var vm = this;
 
+    vm.arrow = {
+      left: left,
+      right: right
+    };
+
     vm.patient = {
       neededDose: 35,
       currentDose: 0
@@ -69,6 +74,14 @@
       $scope.$apply(function() {
         vm.patient.currentDose -= Number(dose);
       });
+    }
+
+    function left() {
+      $scope.$broadcast('carousel:left');
+    }
+
+    function right() {
+      $scope.$broadcast('carousel:right');
     }
 
     $scope.$watch('vm.patient.currentDose', function(newVal) {

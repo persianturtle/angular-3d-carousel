@@ -11,8 +11,8 @@
   <div ng-hide="vm.play" style="height: 100%;">
     <section id="container">
       <section class="controls">
-        <span>&laquo;</span>
-        <span>&raquo;</span>
+        <span ng-click="vm.arrow.left();">&laquo;</span>
+        <span ng-click="vm.arrow.right();">&raquo;</span>
       </section>
       <section class="top text-container" ng-if="!vm.start">
         <h1>Are you dosing Aranesp<sup>&reg;</sup> as precisely as possible?</h1>

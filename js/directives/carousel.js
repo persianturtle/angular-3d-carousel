@@ -257,6 +257,28 @@
           );
         }
 
+        scope.$on('carousel:left', function(e) {
+          e.preventDefault();
+          properties.angularVelocity -= 100;
+
+          if (properties.angularVelocity < -500) {
+            properties.angularVelocity = -500;
+          }
+
+          predict();
+        });
+
+        scope.$on('carousel:right', function(e) {
+          e.preventDefault();
+          properties.angularVelocity += 100;
+
+          if (properties.angularVelocity > 500) {
+            properties.angularVelocity = 500;
+          }
+
+          predict();
+        });
+
         function reset() {
           cancelAnimationFrame(requestID);
           properties.velocities = [];
