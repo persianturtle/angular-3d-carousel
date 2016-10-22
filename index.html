@@ -5,137 +5,28 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Arenesp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="bundle/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Include angular-3d-carousel.css -->
+  <link rel="stylesheet" href="dist/angular-3d-carousel.css">
 </head>
 <body ng-controller="UiController as vm">
-  <div ng-hide="vm.play" style="height: 100%;">
-    <section id="container">
-      <section class="controls">
-        <span ng-click="vm.arrow.left();">&laquo;</span>
-        <span ng-click="vm.arrow.right();">&raquo;</span>
-      </section>
-      <section class="top text-container" ng-if="!vm.start">
-        <h1>Are you dosing Aranesp<sup>&reg;</sup> as precisely as possible?</h1>
-        <p>Play our interactive game and find out! Meet patients you may be familiar with in your practice, and build their correct dose from the convenient single-dose strengths available.</p>
-        <p>SPIN THE WHEEL TO GET STARTED.</p>
-      </section>
 
-      <section class="top text-container" ng-show="vm.start">
-        <h1 style="text-transform: uppercase;">You Got {{ vm.title }}!</h1>
-        <h2 style="text-transform: uppercase;">Tap Below To Get Started</h2>
-      </section>
+  <!-- Include the carousel directive -->
+  <carousel sides="vm.sides"></carousel>
 
-      <carousel></carousel>
+  <h1>Try spinning the 3d carousel.</h1>
 
-      <section class="bottom">
-        <div>
-          <img src="img/logo-amgen.png">
-        </div>
+  <button class="controls" ng-click="vm.controls.decrease();">Decrease Sides</button>
+  <button class="controls" ng-click="vm.controls.increase();">Increase Sides</button>
 
-        <div>
-          <p>Amgen</p>
-          <p>One Amgen Center Drive</p>
-          <p>Thousand Oaks, CA 91320-1799</p>
-          <p>www.amgen.com</p>
-          <p>&copy; 2016 Amgen Inc. All rights reserved. Not for reproduction. USA-291-036818</p>
-        </div>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers/UiController.js"></script>
 
-        <div>
-          <img src="img/logo-arenesp.png">
-        </div>
-      </section>
-    </section>
-  </div>
-
-  <div ng-show="vm.play" style="display: flex; height: 100%;">
-    <section class="left">
-      <div class="row">
-        <img src="img/guest.png" style="border-radius: 50%; max-width: 33.3333%; margin: 1.5vw; border: 1px solid black;">
-        <div>
-          <h1>{{ vm.title }}</h1>
-          <hr>
-          <ul style="margin: 0; padding: 0; list-style: none;">
-            <li style="padding-left: 5px;">Caucasian Male</li>
-            <li style="padding-left: 5px;">70 years old</li>
-            <li style="padding-left: 5px;"><strong>A patient with multiple comorbidities</strong></li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="padding-left: 2vw;">
-        <label style="font-weight: bold;">MEDICAL HISTORY:</label>
-        <ul style="margin: 0; padding: 0 0 0 15px;">
-          <li>End-stage renal disease due to diabetes</li>
-          <li>Hemodialysis for 5 years (stula)</li>
-          <li>Anemia due to chronic kidney disease (CKD)</li>
-          <li>Rheumatoid arthritis</li>
-          <li>Hypertension, controlled</li>
-          <li>Secondary hyperparathyroidism</li>
-        </ul>
-      </div>
-
-      <div style="padding-left: 2vw; margin-top: 2vw;">
-        <label style="font-weight: bold;">PATIENT STATUS:</label>
-        <p style="margin: 0;">Patient complains of discomfort on the bottom of his foot</p>
-        <ul style="margin: 0; padding: 0 0 0 15px;">
-          <li>Clinical assessment reveals hemoglobin (Hb) has declined
-due to in ammation; patient received treatment for foot lesion</li>
-        </ul>
-      </div>
-
-      <div style="padding-left: 2vw; margin-top: 2vw;">
-        <label style="font-weight: bold;">ARANESP® DOSE:</label>
-        <p style="margin: 0;">Based on this clinical assessment, the patient’s dose should be increased by 25%.</p>
-      </div>
-
-      <div style="padding-left: 2vw; margin-top: 2vw;">
-        <label style="font-weight: bold;">IMPORTANT INFORMATION REGARDING THIS CASE STUDY</label>
-       <ul style="margin: 0; padding: 0 0 0 15px;">
-          <li>This illustrates a hypothetical patient with anemia due to CKD who is on
-hemodialysis and receiving Aranesp®. The patient has multiple comorbidities
-and experiences unpredictable clinical events that lead to changes in Hb</li>
-          <li>As a reminder, each patient must be managed individually, taking into
-consideration the patient’s characteristics and clinical situation and the
-dosing recommendations in the Prescribing Information</li>
-        </ul>
-      </div>
-
-      <div style="padding-left: 2vw; margin-top: 2vw;">
-        <p style="margin: 0;">Please see Important Safety Information, including Boxed WARNINGS,
-on adjacent panel.</p>
-      </div>
-
-      <div style="padding-left: 2vw; margin-top: 2vw;">
-        <p style="margin: 0;">Please see accompanying Aranesp® full Prescribing Information,
-including Boxed WARNINGS and Medication Guide, at booth.</p>
-      </div>
-    </section>
-
-    <section class="right">
-      <div class="row" style="display: flex; align-items: center;">
-        <h1 style="text-align: right; padding-right: 5px;">The dose this<br>patient needs is</h1>
-        <h1 style="text-align: left; padding-left: 5px; font-size: 400%;">{{ vm.patient.neededDose }} mcg</h1>
-      </div>
-
-      <div class="row">
-        <p ng-class="{'error': vm.error}" ng-bind="vm.message" style="text-align: center; padding-bottom: 60px; font-size: 2vw; padding-left: 5%; padding-right: 5%;"></p>
-      </div>
-
-      <div class="row" style="margin-bottom: 10vh; width: 40vw; justify-content: space-around;">
-        <div ng-class="{'error': vm.patient.currentDose > vm.patient.neededDose, 'success': vm.patient.currentDose === vm.patient.neededDose}" class="droparea" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-        <div ng-class="{'error': vm.patient.currentDose > vm.patient.neededDose, 'success': vm.patient.currentDose === vm.patient.neededDose}" class="droparea" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-      </div>
-
-      <div class="row" style="text-align: center; width: 70%; padding-left: 15vw; padding-right: 15vw;" ondrop="remove(event)" ondragover="allowDrop(event)">
-        <a id="dose10" draggable="true" ondragstart="drag(event)" style="background: gray; border: 1px solid black; width: 80%;height: 80%; display: flex; justify-content: center; align-items: center;"><span style="font-size: 3vw;">10</span><br>mg</a>
-        <a id="dose25" draggable="true" ondragstart="drag(event)" style="background: gray; border: 1px solid black; width: 80%;height: 80%; display: flex; justify-content: center; align-items: center;"><span style="font-size: 3vw;">25</span><br>mg</a>
-        <a id="dose40" draggable="true" ondragstart="drag(event)" style="background: gray; border: 1px solid black; width: 80%;height: 80%; display: flex; justify-content: center; align-items: center;"><span style="font-size: 3vw;">40</span><br>mg</a>
-        <a id="dose60" draggable="true" ondragstart="drag(event)" style="background: gray; border: 1px solid black; width: 80%;height: 80%; display: flex; justify-content: center; align-items: center;"><span style="font-size: 3vw;">60</span><br>mg</a>
-        <a id="dose100" draggable="true" ondragstart="drag(event)" style="background: gray; border: 1px solid black; width: 80%;height: 80%; display: flex; justify-content: center; align-items: center;"><span style="font-size: 3vw;">100</span><br>mg</a>
-      </div>
-    </section>
-  </div>
-
-  <script src="bundle/app.js"></script>
+  <!-- Include angular-3d-carousel.js -->
+  <script src="dist/angular-3d-carousel.js"></script>
+  <script>window.viewportUnitsBuggyfill.init();</script>
 </body>
 </html>

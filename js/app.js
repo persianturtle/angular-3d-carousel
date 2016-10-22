@@ -2,6 +2,6 @@
 
 'use strict';
 
-angular.module('app', ['ngAnimate']);
-  
+angular.module('app', ['angular-3d-carousel']);
+
 })();

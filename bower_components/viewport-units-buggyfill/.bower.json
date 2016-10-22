@@ -1,0 +1,45 @@
+{
+  "name": "viewport-units-buggyfill",
+  "description": "Making viewport units (vh|vw|vmin|vmax) work properly in older WebKit and Trident",
+  "version": "0.6.0",
+  "main": [
+    "./viewport-units-buggyfill.js",
+    "./viewport-units-buggyfill.hacks.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "examples",
+    "*.html",
+    "*.css",
+    "*.md",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "ios",
+    "safari",
+    "viewport"
+  ],
+  "homepage": "https://github.com/rodneyrehm/viewport-units-buggyfill",
+  "authors": [
+    "Rodney Rehm <mail+github@rodneyrehm.de> (http://rodneyrehm.de)",
+    "Zoltan Hawryluk <zhawryluk@sapient.com> (http://www.useragentman.com)"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "_release": "0.6.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.6.0",
+    "commit": "9dab971f02a569a481d7ade1888c761d2978bb1a"
+  },
+  "_source": "https://github.com/rodneyrehm/viewport-units-buggyfill.git",
+  "_target": "*",
+  "_originalSource": "viewport-units-buggyfill"
+}

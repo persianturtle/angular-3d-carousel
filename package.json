@@ -3,7 +3,6 @@
   "devDependencies": {
     "gulp": "latest",
     "gulp-uglify": "latest",
-    "gulp-clean-css": "latest",
     "gulp-concat": "latest",
     "gulp-concat-css": "latest",
     "gulp-autoprefixer": "latest"
