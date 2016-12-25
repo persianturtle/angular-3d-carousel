@@ -23,7 +23,7 @@ and add the `angular-3d-carousel` as a dependency.
 angular.module('app', ['angular-3d-carousel']);
 ```
 
-Then use the `<carousel sides="sides"></carousel>` directive where you would like to use it.
+Then use the `<carousel sides="vm.sides.all" current="vm.sides.current"></carousel>` directive where you would like to use it.
 
 Note: The `sides` attribute expects an array of objects. Currently, the each object should have the following properties:
   - image (path to image)

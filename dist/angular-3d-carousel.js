@@ -24,7 +24,8 @@
         '</div>',
       replace: true,
       scope: {
-        sides: '='
+        sides: '=',
+        current: '='
       },
       link: function(scope, element, attributes) {
         var position;
@@ -174,7 +175,6 @@
             currentSide = Math.round(currentSide);
 
             alert('You got ' + scope.sides[currentSide].title);
-            scope.$broadcast('start', scope.sides[currentSide].title);
 
             scope.$apply(function() {
               scope.current = currentSide;

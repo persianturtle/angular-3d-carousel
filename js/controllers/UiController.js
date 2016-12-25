@@ -11,10 +11,13 @@
   function UiController($scope) {
     var vm = this;
 
-    vm.sides = [];
+    vm.sides = {
+      all: [],
+      current: 0
+    };
 
     for (var i = 0; i < 8; i++) {
-      vm.sides.push({
+      vm.sides.all.push({
         image: 'img/guest.png',
         title: 'Side' + (i + 1),
         listItems: ['Attribute 1', 'Attribute 2', 'Attribute 3']
@@ -26,16 +29,20 @@
       decrease: decrease
     };
 
+    $scope.$watch('vm.sides.current', function() {
+      console.log('Current Index:', vm.sides.current);
+    });
+
     function increase() {
-      vm.sides.push({
+      vm.sides.all.push({
         image: 'img/guest.png',
-        title: 'Side' + (vm.sides.length + 1),
+        title: 'Side' + (vm.sides.all.length + 1),
         listItems: ['Attribute 1', 'Attribute 2', 'Attribute 3']
       });
     }
 
     function decrease() {
-      vm.sides.splice(vm.sides.length - 1, 1);
+      vm.sides.all.splice(vm.sides.all.length - 1, 1);
     }
   }
 
